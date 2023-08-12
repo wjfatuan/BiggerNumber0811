@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import kotlin.random.Random
 
 // actividad: pantalla de la aplicacion
 
 class MainActivity : AppCompatActivity() {
 
-    val leftNumber: Int = 10 // val es una variable que no puede mutar
-    val rightNumber: Int = 5  // var es una variable que si puede mutar
+    var leftNumber: Int = Random.nextInt(0,100)
+    var rightNumber: Int = (0..100).random()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Has perdido", Toast.LENGTH_LONG).show()
                 println("Has perdido :(")
             }
+            leftNumber = Random.nextInt(0,100)
+            rightNumber = (0..100).random()
+
         }
 
         bl.setOnClickListener {
@@ -38,6 +42,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Has perdido", Toast.LENGTH_LONG).show()
                 println("Has perdido :(")
             }
+            leftNumber = Random.nextInt(0,100)
+            rightNumber = (0..100).random()
         }
     }
 }
