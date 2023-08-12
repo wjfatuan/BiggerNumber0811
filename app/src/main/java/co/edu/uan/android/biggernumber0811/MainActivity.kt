@@ -3,6 +3,7 @@ package co.edu.uan.android.biggernumber0811
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import kotlin.random.Random
 
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val bl = findViewById<Button>(R.id.buttonLeft)
         val br = findViewById(R.id.buttonRight) as Button
 
+
         br.setOnClickListener {
             validarSeleccion(rightNumber, leftNumber)
         }
@@ -30,14 +32,19 @@ class MainActivity : AppCompatActivity() {
         bl.setOnClickListener {
             validarSeleccion(leftNumber, rightNumber)
         }
+
+
     }
 
     fun validarSeleccion(numeroGrande: Int, numeroPequeno: Int) {
         println("numero grande: $numeroGrande, numero pequeno $numeroPequeno")
+        val tv = findViewById<TextView>(R.id.textResult)
         if(numeroGrande>numeroPequeno) {
             Toast.makeText(this, "Has ganado!", Toast.LENGTH_LONG).show()
+            tv.text = "Has ganado!"
         } else {
             Toast.makeText(this, "Has perdido", Toast.LENGTH_LONG).show()
+            tv.text = "Has perdido :("
         }
         asignarValoresAleatorios()
     }
