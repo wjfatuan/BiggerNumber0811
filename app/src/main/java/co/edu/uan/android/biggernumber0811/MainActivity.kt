@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import co.edu.uan.android.biggernumber0811.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 // actividad: pantalla de la aplicacion
@@ -16,13 +17,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         // layout: un archivo xml que contiene la definicion del UI
 
         asignarValoresAleatorios()
 
-        val bl = findViewById<Button>(R.id.buttonLeft)
-        val br = findViewById(R.id.buttonRight) as Button
+        val bl = binding.buttonLeft
+        val br = binding.buttonRight
 
 
         br.setOnClickListener {
